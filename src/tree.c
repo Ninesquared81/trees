@@ -22,7 +22,7 @@ void lcrs_insert_at(struct lcrs_node *node, struct lcrs_node **at) {
     struct lcrs_node *new_sibling = *at;
     *at = node;
     struct lcrs_node **last_sibling = find_last_sibling(node);
-    (*last_sibling)->sibling = new_sibling;
+    *last_sibling = new_sibling;
 }
 
 void lcrs_insert_child(struct lcrs_node *node, struct lcrs_node *parent) {
