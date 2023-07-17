@@ -8,5 +8,8 @@ struct lcrs_node {
 };
 
 void lcrs_node_init(struct lcrs_node *node);
+void lcrs_insert_at(struct lcrs_node *node, struct lcrs_node **at);
+void lcrs_insert_child(struct lcrs_node *node, struct lcrs_node *parent);
+void lcrs_insert_sibling(struct lcrs_node *node, struct lsrc_node *sibling);
 
 #endif
