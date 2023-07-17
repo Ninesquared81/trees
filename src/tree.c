@@ -1,6 +1,8 @@
 #include <stdlib.h>
 
 #include "tree.h"
+#include "utils.h"
+
 void lcrs_node_init(struct lcrs_node *node) {
     node->data = 0;
     node->child = NULL;
@@ -31,3 +33,9 @@ void lcrs_insert_sibling(struct lcrs_node *node, struct lcrs_node *sibling) {
     lcrs_insert_at(node, &sibling->sibling);
 }
 
+int lcrs_tree_height(struct lcrs_node *root) {
+    if (root == NULL) return -1;
+
+    /* Since siblings are on the same level, 1 is added only to the child's height. */
+    return max(1 + lcrs_tree_height(root->child), lcrs_tree_height(root->sibling));
+}
